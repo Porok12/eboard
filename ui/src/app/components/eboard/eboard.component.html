@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayoutGap="2%"
+     [ngStyle]="{'margin-bottom': '2%'}">
+  <button mat-flat-button color="primary" (click)="getCategories()">Refresh</button>
+  <button mat-flat-button color="primary" (click)="createCategory()">Add category</button>
+</div>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5%">
+  <app-category
+    *ngFor="let category of categories$ | async; let i = index"
+    [listIndex]="i"
+    [category]="category"
+    [categories]="categories$ | async"
+    [ngStyle]="{'min-width.px': 300}"
+    (addItemEvent)="addItem($event)"
+    (editItemEvent)="editItem($event)"
+    (deleteItemEvent)="deleteItem($event)"
+    (createCategoryEvent)="createCategory()"
+    (editCategoryEvent)="editCategory($event, category)"
+    (deleteCategoryEvent)="deleteCategory($event)"
+  ></app-category>
+</div>

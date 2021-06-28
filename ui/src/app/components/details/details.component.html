@@ -1,0 +1,7 @@
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="todoItem.name" name="name"/>
+  </mat-form-field>
+  <mat-checkbox class="example-margin" [(ngModel)]="todoItem.isCompleted" name="isCompleted"></mat-checkbox>
+  <button mat-button type="submit">Update</button>
+</form>

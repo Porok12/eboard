@@ -1,0 +1,29 @@
+<mat-card fxFlex [ngStyle]="{'min-width.px': 300}">
+  <mat-card-title fxLayout="row" fxLayoutAlign="center">
+    <span fxFlex="80%">{{ category.title }}</span>
+    <mat-icon fxFlex="10%" (click)="addItem(category)" clickable>add_box</mat-icon>
+    <mat-icon fxFlex="10%" (click)="deleteCategory(category)" clickable>delete</mat-icon>
+  </mat-card-title>
+  <mat-card-subtitle>
+    {{ category.description }}
+  </mat-card-subtitle>
+  <mat-card-content>
+    <!--      #todoList="cdkDropList"-->
+    <!--      [attr.id]="'column-' + i"-->
+    <div fxLayout="column"
+         [ngStyle]="{'height': '60vh'}"
+         id="card-{{listIndex}}"
+         cdkDropList
+         [cdkDropListData]="category.items"
+         [cdkDropListConnectedTo]="getOthers(category)"
+         (cdkDropListDropped)="onDrop($event)"
+    >
+      <app-item cdkDrag
+        *ngFor="let item of category.items" [item]="item"
+        (deleteItemEvent)="deleteItem($event)"
+        (editItemEvent)="editItem($event)"
+      >
+      </app-item>
+    </div>
+  </mat-card-content>
+</mat-card>

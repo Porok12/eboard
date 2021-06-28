@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" [style.position]="'fixed'">
+<!--  <span >eBoard</span>-->
+  <a [routerLink]="'/'" mat-button>eBoard</a>
+  <a [routerLink]="'/about'" mat-button>About</a>
+</mat-toolbar>
+<mat-toolbar></mat-toolbar>
+<div class="container" [ngStyle]="{'margin-top': '2%'}">
+  <router-outlet></router-outlet>
+</div>

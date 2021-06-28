@@ -1,0 +1,10 @@
+<mat-card fxLayout="column wrap">
+  <mat-card-title fxFlex>
+    <span fxFlex="80%"><b>{{ item.name }}</b></span>
+    <mat-icon fxFlex="10%" (click)="editItem(item)" clickable>edit</mat-icon>
+    <mat-icon fxFlex="10%" (click)="deleteItem(item)" clickable>delete</mat-icon>
+  </mat-card-title>
+  <mat-card-content fxFlex>
+    Lorem ipsum... {{ item.description }}
+  </mat-card-content>
+</mat-card>
